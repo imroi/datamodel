@@ -1,0 +1,6 @@
+object_type
+object
+risico
+bereikbaarheid
+opstelplaats
+voorziening

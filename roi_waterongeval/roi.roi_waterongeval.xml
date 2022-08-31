@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="roi" schema="roi_waterongeval" type="PostgreSQL - 14.4 (Debian 14.4-1.pgdg110+1)">
+   <tables>
+      <table name="bereikbaarheid" remarks="Route en bereikbaarheid waterongeval" schema="roi_waterongeval" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="bereikbaarheid_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_waterongeval" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="verbinding_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="bereikbaarheid_verbinding_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="verbinding"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="obstakels" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="bereikbaarheid_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="bereikbaarheid_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="bereikbaarheid_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="object" remarks="Waterongevallen object" schema="roi_waterongeval" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <child column="object_uuid" foreignKey="bereikbaarheid_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_waterongeval" table="bereikbaarheid"/>
+            <child column="object_uuid" foreignKey="opstelplaats_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_waterongeval" table="opstelplaats"/>
+            <child column="object_uuid" foreignKey="risico_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_waterongeval" table="risico"/>
+            <child column="object_uuid" foreignKey="voorziening_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_waterongeval" table="voorziening"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="12" digits="0" id="4" name="revisie_frequentie" nullable="false" remarks="De maximale periode in maanden dat een object bijgewerkt dient te worden" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="formelenaam" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="adres" nullable="true" remarks="Adres bij benadering: t.b.v. navigatie of zoeken" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="10" name="fase_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="object_fase_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="fase"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="object_type_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="object_object_type_id_fkey" implied="false" onDeleteCascade="false" schema="roi_waterongeval" table="object_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="talud" nullable="true" remarks="Eenvoudige aanduiding talud type" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="zicht" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="diepte" nullable="true" remarks="" size="0" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="stroomsnelheid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="beheerder" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="marifoon" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="risico" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="object_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="object_fase_id_idx" unique="false">
+            <column ascending="true" name="fase_id"/>
+         </index>
+         <index name="object_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="object_object_type_id_idx" unique="false">
+            <column ascending="true" name="object_type_id"/>
+         </index>
+         <index name="object_revisie_frequentie_idx" unique="false">
+            <column ascending="true" name="revisie_frequentie"/>
+         </index>
+      </table>
+      <table name="object_type" remarks="" schema="roi_waterongeval" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="object_type_id" foreignKey="object_object_type_id_fkey" implied="false" onDeleteCascade="false" schema="roi_waterongeval" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="naam" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="omschrijving" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="object_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="opstelplaats" remarks="Opstelplaatsen bij waterongeval" schema="roi_waterongeval" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="opstelplaats_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_waterongeval" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="voertuig_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="opstelplaats_voertuig_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="voertuig"/>
+         </column>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="opstelplaats_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="opstelplaats_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="opstelplaats_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="risico" remarks="Dreigingen bij een waterongeval" schema="roi_waterongeval" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="risico_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_waterongeval" table="object"/>
+         </column>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="risico_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="risico_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="risico_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="voorziening" remarks="Voorzieningen waterongeval" schema="roi_waterongeval" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="voorziening_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_waterongeval" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="symbool_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="voorziening_symbool_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="symbool"/>
+         </column>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="voorziening_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="voorziening_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="voorziening_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+   </tables>
+</database>

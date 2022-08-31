@@ -1,0 +1,11 @@
+versie
+regio
+configuratie
+bijlage
+zone
+voertuig
+discipline
+annotatie
+verbinding
+symbool
+fase

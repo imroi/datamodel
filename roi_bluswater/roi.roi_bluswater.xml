@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="roi" schema="roi_bluswater" type="PostgreSQL - 14.4 (Debian 14.4-1.pgdg110+1)">
+   <tables>
+      <table name="bluswaterriool" remarks="Bluswater riool" schema="roi_bluswater" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="beheerder" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="particulier" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="adres" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="12" name="uitsluiten" nullable="true" remarks="Uitsluiten van inspectie" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="12" digits="0" id="13" name="revisie_frequentie" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="14" name="fase_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="bluswaterriool_fase_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="fase"/>
+         </column>
+         <column autoUpdated="false" defaultValue="507" digits="0" id="15" name="symbool_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="bluswaterriool_symbool_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="symbool"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="gebied_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="bluswaterriool_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="gebied"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="opstelplaats" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="opstelplaats_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="toegang" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="aanleg" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="putdeksel_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="putdeksel_waterdiepte" nullable="true" remarks="" size="0" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="verzonken" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="diameter_leiding" nullable="true" remarks="" size="0" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="inspecteur" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="inspectie_datum" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="9" digits="0" id="28" name="inspectie_conditie_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="bluswaterriool_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="conditie"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="inspectie_opmerking" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="inspectie_plusinfo" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="inspectie_opstelplaats" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="inspectie_reiniging" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="inspectie_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="inspectie_markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="inspectie_beplanting" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="inspectie_obstakels" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="inspectie_bereikbaarheid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="inspectie_waterdiepte" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="inspectie_bluswater" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="bluswaterriool_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="bluswaterriool_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="brandkraan" remarks="Inspecties openbare brandkranen" schema="roi_bluswater" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="nen3610id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="10" name="uitsluiten" nullable="true" remarks="Uitsluiten van inspectie" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="12" digits="0" id="11" name="revisie_frequentie" nullable="false" remarks="Revisie in maanden" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="5" digits="0" id="12" name="fase_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandkraan_fase_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="fase"/>
+         </column>
+         <column autoUpdated="false" defaultValue="501" digits="0" id="13" name="symbool_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandkraan_symbool_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="symbool"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="gebied_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandkraan_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="gebied"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="opstelplaats" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="opstelplaats_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="toegang" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="capaciteit" nullable="true" remarks="" size="0" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="aantekening" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="inspecteur" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="inspectie_datum" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="9" digits="0" id="24" name="inspectie_conditie_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandkraan_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="conditie"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="inspectie_opmerking" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="inspectie_plusinfo" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="inspectie_vindbaar" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="inspectie_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="inspectie_opstelplaats" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="inspectie_markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="inspectie_paal" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="inspectie_aanwijsplaat" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="inspectie_aanwijsplaat_correct" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="inspectie_bereikbaarheid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="inspectie_beplanting" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="inspectie_puttegel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="inspectie_straatpot" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="inspectie_putdeksel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="inspectie_diepte" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="inspectie_lekkage" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="inspectie_slibdekstel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="inspectie_klauw" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="inspectie_spindelkop" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="44" name="inspectie_spindel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="inspectie_standpijp" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="46" name="inspectie_rechtzetten" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="inspectie_bluswater" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="48" name="inspectie_leegloopinrichting" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="brandkraan_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="brandkraan_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="brandkraan_geom_idx1" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="brandkraan_nen3610id_idx" unique="false">
+            <column ascending="true" name="nen3610id"/>
+         </index>
+         <index name="brandkraan_nen3610id_key" unique="true">
+            <column ascending="true" name="nen3610id"/>
+         </index>
+      </table>
+      <table name="brandkraan_prive" remarks="Privé brandkranen" schema="roi_bluswater" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="aanleg" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="beheerder" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="particulier" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="adres" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="13" name="uitsluiten" nullable="true" remarks="Uitsluiten van inspectie" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="12" digits="0" id="14" name="revisie_frequentie" nullable="false" remarks="Revisie in maanden" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="15" name="fase_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandkraan_prive_fase_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="fase"/>
+         </column>
+         <column autoUpdated="false" defaultValue="509" digits="0" id="16" name="symbool_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandkraan_prive_symbool_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="symbool"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="gebied_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandkraan_prive_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="gebied"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="opstelplaats" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="opstelplaats_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="toegang" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="capaciteit" nullable="true" remarks="" size="0" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="inspecteur" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="inspectie_datum" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="9" digits="0" id="26" name="inspectie_conditie_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandkraan_prive_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="conditie"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="inspectie_opmerking" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="inspectie_plusinfo" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="inspectie_vindbaar" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="inspectie_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="inspectie_opstelplaats" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="inspectie_markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="inspectie_paal" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="inspectie_aanwijsplaat" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="inspectie_aanwijsplaat_correct" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="inspectie_bereikbaarheid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="inspectie_beplanting" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="inspectie_puttegel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="inspectie_straatpot" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="inspectie_putdeksel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="inspectie_diepte" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="inspectie_lekkage" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="inspectie_slibdekstel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="44" name="inspectie_klauw" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="inspectie_spindelkop" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="46" name="inspectie_spindel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="inspectie_standpijp" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="48" name="inspectie_rechtzetten" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="49" name="inspectie_bluswater" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="50" name="inspectie_leegloopinrichting" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="brandkraan_prive_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="brandkraan_prive_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="brandkraan_prive_geom_idx1" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="brandput" remarks="Geboorde put" schema="roi_bluswater" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="beheerder" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="particulier" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="adres" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="12" name="uitsluiten" nullable="true" remarks="Uitsluiten van inspectie" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="12" digits="0" id="13" name="revisie_frequentie" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="14" name="fase_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandput_fase_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="fase"/>
+         </column>
+         <column autoUpdated="false" defaultValue="504" digits="0" id="15" name="symbool_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandput_symbool_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="symbool"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="gebied_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandput_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="gebied"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="opstelplaats" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="opstelplaats_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="toegang" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="aanleg" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="kenmerk" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="koppeling" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="aanrijdbeveiliging" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="opvoerpomp" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="elektra" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="slot" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="inspecteur" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="inspectie_datum" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="9" digits="0" id="30" name="inspectie_conditie_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="brandput_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="conditie"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="inspectie_opmerking" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="inspectie_plusinfo" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="inspectie_opstelplaats" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="inspectie_certificaat" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="inspectie_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="inspectie_markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="inspectie_beplanting" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="inspectie_obstakels" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="inspectie_bereikbaarheid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="inspectie_elektra" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="inspectie_aanrijdbeveiliging" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="inspectie_slot" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="inspectie_deksel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="44" name="inspectie_rubber" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="inspectie_koppeling" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="brandput_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="brandput_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="conditie" remarks="" schema="roi_bluswater" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="inspectie_conditie_id" foreignKey="bluswaterriool_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="bluswaterriool"/>
+            <child column="inspectie_conditie_id" foreignKey="brandkraan_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="brandkraan"/>
+            <child column="inspectie_conditie_id" foreignKey="brandkraan_prive_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="brandkraan_prive"/>
+            <child column="inspectie_conditie_id" foreignKey="brandput_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="brandput"/>
+            <child column="inspectie_conditie_id" foreignKey="openwater_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="openwater"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="naam" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="omschrijving" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="conditie_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="gebied" remarks="" schema="roi_bluswater" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="gebied_id" foreignKey="bluswaterriool_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="bluswaterriool"/>
+            <child column="gebied_id" foreignKey="brandkraan_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="brandkraan"/>
+            <child column="gebied_id" foreignKey="brandkraan_prive_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="brandkraan_prive"/>
+            <child column="gebied_id" foreignKey="brandput_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="brandput"/>
+            <child column="gebied_id" foreignKey="openwater_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="openwater"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="naam" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="omschrijving" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="gebied_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="openwater" remarks="Open water" schema="roi_bluswater" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="beheerder" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="particulier" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="adres" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="12" name="uitsluiten" nullable="true" remarks="Uitsluiten van inspectie" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="12" digits="0" id="13" name="revisie_frequentie" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="14" name="fase_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="openwater_fase_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="fase"/>
+         </column>
+         <column autoUpdated="false" defaultValue="509" digits="0" id="15" name="symbool_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="openwater_symbool_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="symbool"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="gebied_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="openwater_gebied_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="gebied"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="opstelplaats" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="opstelplaats_locatie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="opstelplaats_waterdiepte" nullable="true" remarks="" size="0" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="toegang" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="aanleg" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="oever" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="bodem" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="open_verbinding" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="voertuig" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="inspecteur" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="inspectie_datum" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="9" digits="0" id="29" name="inspectie_conditie_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="openwater_inspectie_conditie_id_fkey" implied="false" onDeleteCascade="false" schema="roi_bluswater" table="conditie"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="inspectie_opmerking" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="inspectie_plusinfo" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="inspectie_opstelplaats" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="inspectie_opstelplaats_bereikbaarheid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="inspectie_opstelplaats_waterdiepte" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="inspectie_markering" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="inspectie_beplanting" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="inspectie_obstakels" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="openwater_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="openwater_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+   </tables>
+</database>

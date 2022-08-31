@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="roi" schema="roi_gebouw" type="PostgreSQL - 14.4 (Debian 14.4-1.pgdg110+1)">
+   <tables>
+      <table name="bereikbaarheid" remarks="Route en bereikbaarheid" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="bereikbaarheid_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="verbinding_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="bereikbaarheid_verbinding_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="verbinding"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="obstakels" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="bereikbaarheid_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="bereikbaarheid_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="bereikbaarheid_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="gevaarlijkestof" remarks="Gevaarijke stoffen" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="gevaarlijkestof_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="bouwlaag" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="ghs_categorie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="ghs_divisie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="identificatie_gevaar" nullable="true" remarks="Gevaar identificatienummers ofwel GEVI-codes" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="identificatie_stof" nullable="true" remarks="Stofidentificatienummer ofwel UN-nummer" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="hoeveelheid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="eenheid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="toestand" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="handelingsaanwijzing" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="gevaarlijkestof_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="gevaarlijkestof_bouwlaag_idx" unique="false">
+            <column ascending="true" name="bouwlaag"/>
+         </index>
+         <index name="gevaarlijkestof_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="gevaarlijkestof_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="label" remarks="Labels op de kaart" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="label_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="annotatie_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="label_annotatie_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="annotatie"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="bouwlaag" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="label_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="label_bouwlaag_idx" unique="false">
+            <column ascending="true" name="bouwlaag"/>
+         </index>
+         <index name="label_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="label_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="object" remarks="Gebouw object" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <child column="object_uuid" foreignKey="bereikbaarheid_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="bereikbaarheid"/>
+            <child column="object_uuid" foreignKey="gevaarlijkestof_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="gevaarlijkestof"/>
+            <child column="object_uuid" foreignKey="label_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="label"/>
+            <child column="object_uuid" foreignKey="opstelplaats_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="opstelplaats"/>
+            <child column="object_uuid" foreignKey="gebouw_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="pand"/>
+            <child column="object_uuid" foreignKey="risico_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="risico"/>
+            <child column="object_uuid" foreignKey="scenario_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="scenario"/>
+            <child column="object_uuid" foreignKey="scheiding_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="scheiding"/>
+            <child column="object_uuid" foreignKey="sector_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="sector"/>
+            <child column="object_uuid" foreignKey="voorziening_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="voorziening"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="12" digits="0" id="4" name="revisie_frequentie" nullable="false" remarks="De maximale periode in maanden dat een object bijgewerkt dient te worden" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="formelenaam" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="adres" nullable="true" remarks="Adres bij benadering: t.b.v. navigatie of zoeken" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="fase_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="object_fase_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="fase"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="contact_functie" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="contact_telefoon" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="bhv_aanwezig" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="bhv_ademlucht" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="bhv_dagen" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="bhv_tijden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="bhv_telefoon" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="object_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="object_fase_id_idx" unique="false">
+            <column ascending="true" name="fase_id"/>
+         </index>
+         <index name="object_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="object_revisie_frequentie_idx" unique="false">
+            <column ascending="true" name="revisie_frequentie"/>
+         </index>
+      </table>
+      <table name="opstelplaats" remarks="Opstelplaatsen bij evenement" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="opstelplaats_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="voertuig_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="opstelplaats_voertuig_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="voertuig"/>
+         </column>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="opstelplaats_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="opstelplaats_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="opstelplaats_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="pand" remarks="Overdekte en geheel of grotendeels met wanden omsloten constructief zelfstandige eenheid" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="gebouw_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="bouwlaag" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="bouwdeel" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="imbag_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="imgeo_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="13" name="handmatig" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="gebouw_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="gebouw_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="pand_bouwlaag_idx" unique="false">
+            <column ascending="true" name="bouwlaag"/>
+         </index>
+         <index name="pand_handmatig_idx" unique="false">
+            <column ascending="true" name="handmatig"/>
+         </index>
+         <index name="pand_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+         <index name="pand_object_uuid_idx1" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="risico" remarks="Dreigingen" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="risico_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="bouwlaag" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="risico_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="risico_bouwlaag_idx" unique="false">
+            <column ascending="true" name="bouwlaag"/>
+         </index>
+         <index name="risico_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="risico_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="scenario" remarks="Scenario" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="1" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="2" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="scenario_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="scenario_type_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="scenario_scenario_type_id_fkey" implied="false" onDeleteCascade="false" schema="roi_gebouw" table="scenario_type"/>
+         </column>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="scenario_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="scenario_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="scenario_type" remarks="" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="scenario_type_id" foreignKey="scenario_scenario_type_id_fkey" implied="false" onDeleteCascade="false" schema="roi_gebouw" table="scenario"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="naam" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="omschrijving" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="scenario_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="scheiding" remarks="Bouwkundige scheidingen" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="scheiding_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="scheiding_type_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="scheiding_scheiding_type_id_fkey" implied="false" onDeleteCascade="false" schema="roi_gebouw" table="scheiding_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="bouwlaag" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="scheiding_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="scheiding_bouwlaag_idx" unique="false">
+            <column ascending="true" name="bouwlaag"/>
+         </index>
+         <index name="scheiding_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="scheiding_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="scheiding_type" remarks="" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="scheiding_type_id" foreignKey="scheiding_scheiding_type_id_fkey" implied="false" onDeleteCascade="false" schema="roi_gebouw" table="scheiding"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="naam" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="omschrijving" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="scheiding_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="sector" remarks="Gedeelte (niet-)toegankelijk" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="sector_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="zone_id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="sector_zone_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="zone"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="bouwlaag" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="sector_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="sector_bouwlaag_idx" unique="false">
+            <column ascending="true" name="bouwlaag"/>
+         </index>
+         <index name="sector_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="sector_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+      <table name="voorziening" remarks="Voorzieningen gebouw" schema="roi_gebouw" type="TABLE">
+         <column autoUpdated="false" defaultValue="gen_random_uuid()" digits="0" id="0" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="geom" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="datumtijd" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_USER" digits="0" id="3" name="gebruiker" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="rotatie" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="bijzonderheden" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="plusinfo" nullable="true" remarks="Optionele velden" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="object_uuid" nullable="false" remarks="" size="2147483647" type="uuid" typeCode="1111">
+            <parent column="uuid" foreignKey="voorziening_object_uuid_fkey" implied="false" onDeleteCascade="true" schema="roi_gebouw" table="object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="symbool_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="voorziening_symbool_id_fkey" implied="false" onDeleteCascade="false" schema="roi" table="symbool"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="bouwlaag" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <primaryKey column="uuid" sequenceNumberInPK="1"/>
+         <index name="voorziening_pkey" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="voorziening_bouwlaag_idx" unique="false">
+            <column ascending="true" name="bouwlaag"/>
+         </index>
+         <index name="voorziening_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="voorziening_object_uuid_idx" unique="false">
+            <column ascending="true" name="object_uuid"/>
+         </index>
+      </table>
+   </tables>
+</database>

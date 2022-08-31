@@ -1,0 +1,8 @@
+maatregel_type
+object_type
+object
+bereikbaarheid
+label
+maatregel
+sector
+voorziening

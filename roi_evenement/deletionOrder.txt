@@ -1,0 +1,8 @@
+voorziening
+sector
+opstelplaats
+label
+bereikbaarheid
+risico
+object
+object_type

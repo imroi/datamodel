@@ -1,0 +1,13 @@
+scenario_type
+scheiding_type
+object
+gevaarlijkestof
+pand
+risico
+bereikbaarheid
+label
+opstelplaats
+scenario
+scheiding
+sector
+voorziening
