@@ -100,7 +100,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -290,7 +296,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="ghs_categorie">ghs_categorie</span></td>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="ghs">ghs</span></td>
                                     <td>int4</td>
                                     <td>10</td>
                                     <td title='nullable'>√</td>
@@ -307,24 +313,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="ghs_divisie">ghs_divisie</span></td>
-                                    <td>int4</td>
-                                    <td>10</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="identificatie_gevaar">identificatie_gevaar</span></td>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="gevi">gevi</span></td>
                                     <td>text</td>
                                     <td>2147483647</td>
                                     <td title='nullable'>√</td>
@@ -338,10 +327,10 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Gevaar identificatienummers ofwel GEVI-codes</p></td>
+                                    <td><p>Gevaars-identificatie nummer</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="identificatie_stof">identificatie_stof</span></td>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="stid">stid</span></td>
                                     <td>int4</td>
                                     <td>10</td>
                                     <td title='nullable'>√</td>
@@ -355,7 +344,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Stofidentificatienummer ofwel UN-nummer</p></td>
+                                    <td><p>Stof-identificatie nummer</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="hoeveelheid">hoeveelheid</span></td>
@@ -439,7 +428,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead>
                                 <tr>
                                     <th>Constraint Name</th>
@@ -468,10 +463,28 @@
                                     <td>geom</td>
                                 </tr>
                                 <tr>
+                                    <td title='Indexed'>gevaarlijkestof_gevi_idx</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>gevi</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>gevaarlijkestof_ghs_idx</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>ghs</td>
+                                </tr>
+                                <tr>
                                     <td title='Indexed'>gevaarlijkestof_object_uuid_idx</td>
                                     <td>Performance</td>
                                     <td><span title='Ascending'>Asc</span></td>
                                     <td>object_uuid</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>gevaarlijkestof_stid_idx</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>stid</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -495,27 +508,11 @@
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/gevaarlijkestof.html" target="_top" title="gevaarlijkestof" alt="" coords="243,5,653,603">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="5,243,199,448">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/gevaarlijkestof.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bereikbaarheid.html" target="_top" title="bereikbaarheid" alt="" coords="538,5,753,93">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="203,987,396,1192">
-<area shape="rect" id="node5" href="../../../roi/tables/fase.html" target="_top" title="roi.fase" alt="" coords="5,1077,159,1165">
-<area shape="rect" id="node3" href="../../tables/gevaarlijkestof.html" target="_top" title="gevaarlijkestof" alt="" coords="440,111,851,708">
-<area shape="rect" id="node4" href="../../tables/label.html" target="_top" title="label" alt="" coords="580,725,711,813">
-<area shape="rect" id="node6" href="../../tables/opstelplaats.html" target="_top" title="opstelplaats" alt="" coords="549,831,741,919">
-<area shape="rect" id="node7" href="../../tables/pand.html" target="_top" title="pand" alt="" coords="580,936,711,1024">
-<area shape="rect" id="node8" href="../../tables/risico.html" target="_top" title="risico" alt="" coords="578,1041,713,1129">
-<area shape="rect" id="node9" href="../../tables/scenario.html" target="_top" title="scenario" alt="" coords="565,1147,725,1235">
-<area shape="rect" id="node10" href="../../tables/scheiding.html" target="_top" title="scheiding" alt="" coords="561,1252,729,1340">
-<area shape="rect" id="node11" href="../../tables/sector.html" target="_top" title="sector" alt="" coords="574,1357,717,1445">
-<area shape="rect" id="node12" href="../../tables/voorziening.html" target="_top" title="voorziening" alt="" coords="552,1463,739,1551">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/gevaarlijkestof.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
@@ -536,7 +533,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

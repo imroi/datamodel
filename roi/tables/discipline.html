@@ -87,7 +87,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -111,18 +117,6 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="correctieverzoek.discipline_id references discipline.id via correctieverzoek_discipline_id_fkey"><a href='../../roi_terugmelding/tables/correctieverzoek.html'>correctieverzoek</a><span class='relatedKey'>.discipline_id</span></td>
-                                                <td class="constraint detail">correctieverzoek_discipline_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="melding.discipline_id references discipline.id via melding_discipline_id_fkey1"><a href='../../roi_terugmelding/tables/melding.html'>melding</a><span class='relatedKey'>.discipline_id</span></td>
-                                                <td class="constraint detail">melding_discipline_id_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="melding-oud.discipline_id references discipline.id via melding_discipline_id_fkey"><a href='../../roi_terugmelding/tables/melding-oud.html'>melding-oud</a><span class='relatedKey'>.discipline_id</span></td>
-                                                <td class="constraint detail">melding_discipline_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -179,7 +173,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead>
                                 <tr>
                                     <th>Constraint Name</th>
@@ -216,12 +216,7 @@
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../../roi_terugmelding/tables/correctieverzoek.html" target="_top" title="roi_terugmelding.correctieverzoek" alt="" coords="348,5,723,123">
-<area shape="rect" id="node2" href="../../tables/discipline.html" target="_top" title="discipline" alt="" coords="5,137,304,295">
-<area shape="rect" id="node3" href="../../../roi_terugmelding/tables/melding.html" target="_top" title="roi_terugmelding.melding" alt="" coords="386,140,685,257">
-<area shape="rect" id="node4" href="../../../roi_terugmelding/tables/melding-oud.html" target="_top" title="roi_terugmelding.melding&#45;oud" alt="" coords="368,275,703,392">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/discipline.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
@@ -242,7 +237,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

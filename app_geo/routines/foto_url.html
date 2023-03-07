@@ -106,6 +106,11 @@
                                     <td>text</td>
                                     <td>IN</td>
                                 </tr>
+                                <tr>
+                                    <td>_mime</td>
+                                    <td>text</td>
+                                    <td>IN</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -120,7 +125,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">&#10;DECLARE&#10;    _base_url TEXT;&#10;BEGIN&#10;    EXECUTE &#39;SET search_path TO &#39; || _schema || &#39;, app_geo, roi, public&#39;;&#10;    _base_url := (SELECT waarde FROM roi.configuratie WHERE sleutel = &#39;bijlage-base-url&#39;);&#10;    IF _uuid IS NOT NULL AND _base_url &lt;&gt; &#39;&#39; THEN&#10;        RETURN CONCAT(_base_url, _schema, &#39;/foto/&#39;, _uuid, &#39;.jpg&#39;);&#10;    ELSE&#10;        RETURN NULL;&#10;    END IF;&#10;END;&#10;</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">&#10;DECLARE&#10;    _base_url TEXT;&#10;    _ext TEXT;&#10;BEGIN&#10;    EXECUTE &#39;SET search_path TO &#39; || _schema || &#39;, app_geo, roi, public&#39;;&#10;    _base_url := (SELECT waarde FROM roi.configuratie WHERE sleutel = &#39;bijlage-base-url&#39;);&#10;    IF _uuid IS NOT NULL AND _base_url &lt;&gt; &#39;&#39; THEN&#10;        _ext = CASE _mime&#10;                WHEN &#39;application/pdf&#39; THEN &#39;.pdf&#39;&#10;                WHEN &#39;image/jpeg&#39; THEN &#39;.jpg&#39;&#10;                WHEN &#39;image/png&#39; THEN &#39;.png&#39;&#10;                ELSE &#39;.jpg&#39;&#10;            END;&#10;        RETURN CONCAT(_base_url, _schema, &#39;/&#39;, _uuid, _ext);&#10;    ELSE&#10;        RETURN NULL;&#10;    END IF;&#10;END;&#10;</textarea>
                         </div>
                     </div>
                 </section>

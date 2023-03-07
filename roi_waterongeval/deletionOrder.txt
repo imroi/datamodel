@@ -1,6 +1,8 @@
 voorziening
-opstelplaats
-bereikbaarheid
+sector
 risico
+opstelplaats
+label
+bereikbaarheid
 object
 object_type

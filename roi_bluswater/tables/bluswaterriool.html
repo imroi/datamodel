@@ -100,7 +100,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -252,6 +258,23 @@
                                     <td><p>Optionele velden</p></td>
                                 </tr>
                                 <tr>
+                                    <td><span id="aanleg">aanleg</span></td>
+                                    <td>date</td>
+                                    <td>13</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><span id="code">code</span></td>
                                     <td>text</td>
                                     <td>2147483647</td>
@@ -320,12 +343,12 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="uitsluiten">uitsluiten</span></td>
-                                    <td>bool</td>
-                                    <td>1</td>
+                                    <td><span id="onderhoud">onderhoud</span></td>
+                                    <td>tstzrange</td>
+                                    <td>2147483647</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
-                                    <td>false</td>
+                                    <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -334,7 +357,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Uitsluiten van inspectie</p></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><span id="revisie_frequentie">revisie_frequentie</span></td>
@@ -471,23 +494,6 @@
                                     <td><span id="toegang">toegang</span></td>
                                     <td>text</td>
                                     <td>2147483647</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="aanleg">aanleg</span></td>
-                                    <td>date</td>
-                                    <td>13</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -825,7 +831,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead>
                                 <tr>
                                     <th>Constraint Name</th>
@@ -869,27 +881,11 @@
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bluswaterriool.html" target="_top" title="bluswaterriool" alt="" coords="236,5,673,1248">
-<area shape="rect" id="node2" href="../../../roi/tables/fase.html" target="_top" title="roi.fase" alt="" coords="22,348,175,436">
-<area shape="rect" id="node3" href="../../tables/gebied.html" target="_top" title="gebied" alt="" coords="23,559,175,676">
-<area shape="rect" id="node4" href="../../tables/conditie.html" target="_top" title="conditie" alt="" coords="21,829,177,947">
-<area shape="rect" id="node5" href="../../../roi/tables/symbool.html" target="_top" title="roi.symbool" alt="" coords="5,453,192,541">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/bluswaterriool.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bluswaterriool.html" target="_top" title="bluswaterriool" alt="" coords="236,111,673,1353">
-<area shape="rect" id="node2" href="../../../roi/tables/fase.html" target="_top" title="roi.fase" alt="" coords="22,1143,175,1231">
-<area shape="rect" id="node3" href="../../tables/gebied.html" target="_top" title="gebied" alt="" coords="23,1353,175,1471">
-<area shape="rect" id="node4" href="../../tables/conditie.html" target="_top" title="conditie" alt="" coords="21,1488,177,1605">
-<area shape="rect" id="node5" href="../../../roi/tables/symbool.html" target="_top" title="roi.symbool" alt="" coords="5,1248,192,1336">
-<area shape="rect" id="node6" href="../../tables/brandkraan.html" target="_top" title="brandkraan" alt="" coords="363,1371,547,1459">
-<area shape="rect" id="node7" href="../../tables/brandkraan_prive.html" target="_top" title="brandkraan_prive" alt="" coords="338,1476,571,1564">
-<area shape="rect" id="node8" href="../../tables/brandput.html" target="_top" title="brandput" alt="" coords="373,1581,537,1669">
-<area shape="rect" id="node9" href="../../tables/openwater.html" target="_top" title="openwater" alt="" coords="365,5,544,93">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/bluswaterriool.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
@@ -910,7 +906,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

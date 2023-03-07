@@ -100,7 +100,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -273,6 +279,23 @@
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td><span id="bouwlaag">bouwlaag</span></td>
+                                    <td>int2</td>
+                                    <td>5</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="verbinding_id">verbinding_id</span></td>
                                     <td>int2</td>
                                     <td>5</td>
@@ -324,7 +347,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead>
                                 <tr>
                                     <th>Constraint Name</th>
@@ -374,29 +403,11 @@
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bereikbaarheid.html" target="_top" title="bereikbaarheid" alt="" coords="255,5,615,397">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="11,148,205,353">
-<area shape="rect" id="node3" href="../../../roi/tables/verbinding.html" target="_top" title="roi.verbinding" alt="" coords="5,371,211,459">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/bereikbaarheid.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bereikbaarheid.html" target="_top" title="bereikbaarheid" alt="" coords="452,5,812,397">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="209,780,402,985">
-<area shape="rect" id="node3" href="../../../roi/tables/verbinding.html" target="_top" title="roi.verbinding" alt="" coords="203,277,408,365">
-<area shape="rect" id="node6" href="../../../roi/tables/fase.html" target="_top" title="roi.fase" alt="" coords="5,871,159,959">
-<area shape="rect" id="node4" href="../../tables/gevaarlijkestof.html" target="_top" title="gevaarlijkestof" alt="" coords="525,731,739,819">
-<area shape="rect" id="node5" href="../../tables/label.html" target="_top" title="label" alt="" coords="567,836,697,924">
-<area shape="rect" id="node7" href="../../tables/opstelplaats.html" target="_top" title="opstelplaats" alt="" coords="536,941,728,1029">
-<area shape="rect" id="node8" href="../../tables/pand.html" target="_top" title="pand" alt="" coords="567,1047,697,1135">
-<area shape="rect" id="node9" href="../../tables/risico.html" target="_top" title="risico" alt="" coords="565,1152,699,1240">
-<area shape="rect" id="node10" href="../../tables/scenario.html" target="_top" title="scenario" alt="" coords="552,1257,712,1345">
-<area shape="rect" id="node11" href="../../tables/scheiding.html" target="_top" title="scheiding" alt="" coords="548,415,716,503">
-<area shape="rect" id="node12" href="../../tables/sector.html" target="_top" title="sector" alt="" coords="561,520,703,608">
-<area shape="rect" id="node13" href="../../tables/voorziening.html" target="_top" title="voorziening" alt="" coords="539,625,725,713">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/bereikbaarheid.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
@@ -417,7 +428,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

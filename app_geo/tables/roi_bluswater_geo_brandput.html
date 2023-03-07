@@ -87,7 +87,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -239,6 +245,23 @@
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td><span id="symbool_id">symbool_id</span></td>
+                                    <td>int2</td>
+                                    <td>5</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><span id="label">label</span></td>
                                     <td>text</td>
                                     <td>2147483647</td>
@@ -344,23 +367,6 @@
                                     <td><span id="adres">adres</span></td>
                                     <td>text</td>
                                     <td>2147483647</td>
-                                    <td title='nullable'>√</td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span id="uitsluiten">uitsluiten</span></td>
-                                    <td>bool</td>
-                                    <td>1</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -613,9 +619,9 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="inspectie_plusinfo">inspectie_plusinfo</span></td>
-                                    <td>jsonb</td>
-                                    <td>2147483647</td>
+                                    <td><span id="inspectie_conditie_id">inspectie_conditie_id</span></td>
+                                    <td>int2</td>
+                                    <td>5</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -856,6 +862,30 @@
                     </div>
                     <div class="box box-primary">
                         <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        
+                                        <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/roi_bluswater_geo_brandput.1degree.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
                             <i class="fa fa-file-code-o"></i>
                             <h3 id="ViewDefinition" class="box-title">View Definition</h3>
                             <div class="box-tools pull-right">
@@ -864,7 +894,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT obj.uuid,&#10;    obj.geom,&#10;    to_char(obj.datumtijd, &#39;DD-MM-YYYY&#39;::text) AS datum,&#10;    EXTRACT(month FROM age(obj.datumtijd)) AS actualiteit,&#10;    c.naam AS conditie,&#10;    f.naam AS fase,&#10;    g.naam AS gebied,&#10;    s.naam AS symbool,&#10;    obj.label,&#10;    obj.bijzonderheden,&#10;    obj.aanleg,&#10;    obj.code,&#10;    obj.beheerder,&#10;    obj.particulier,&#10;    obj.adres,&#10;    obj.uitsluiten,&#10;    obj.revisie_frequentie,&#10;    obj.opstelplaats,&#10;    obj.opstelplaats_locatie,&#10;    obj.markering,&#10;    obj.toegang,&#10;    obj.kenmerk,&#10;    obj.koppeling,&#10;    obj.aanrijdbeveiliging,&#10;    obj.opvoerpomp,&#10;    obj.elektra,&#10;    obj.slot,&#10;    obj.inspecteur,&#10;    obj.inspectie_datum,&#10;    obj.inspectie_opmerking,&#10;    obj.inspectie_plusinfo,&#10;    obj.inspectie_opstelplaats,&#10;    obj.inspectie_certificaat,&#10;    obj.inspectie_locatie,&#10;    obj.inspectie_markering,&#10;    obj.inspectie_beplanting,&#10;    obj.inspectie_obstakels,&#10;    obj.inspectie_bereikbaarheid,&#10;    obj.inspectie_elektra,&#10;    obj.inspectie_aanrijdbeveiliging,&#10;    obj.inspectie_slot,&#10;    obj.inspectie_deksel,&#10;    obj.inspectie_rubber,&#10;    obj.inspectie_koppeling&#10;   FROM ((((roi_bluswater.brandput obj&#10;     LEFT JOIN roi_bluswater.conditie c ON ((obj.inspectie_conditie_id = c.id)))&#10;     LEFT JOIN roi.fase f ON ((obj.fase_id = f.id)))&#10;     LEFT JOIN roi_bluswater.gebied g ON ((obj.gebied_id = g.id)))&#10;     LEFT JOIN roi.symbool s ON ((obj.symbool_id = s.id)))&#10;  WHERE ((obj.fase_id &lt; 5) AND (obj.uitsluiten IS NOT TRUE));</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT obj.uuid,&#10;    obj.geom,&#10;    to_char(obj.datumtijd, &#39;DD-MM-YYYY&#39;::text) AS datum,&#10;    EXTRACT(month FROM age(obj.datumtijd)) AS actualiteit,&#10;    c.naam AS conditie,&#10;    f.naam AS fase,&#10;    g.naam AS gebied,&#10;    s.naam AS symbool,&#10;    obj.symbool_id,&#10;    obj.label,&#10;    obj.bijzonderheden,&#10;    obj.aanleg,&#10;    obj.code,&#10;    obj.beheerder,&#10;    obj.particulier,&#10;    obj.adres,&#10;    obj.revisie_frequentie,&#10;    obj.opstelplaats,&#10;    obj.opstelplaats_locatie,&#10;    obj.markering,&#10;    obj.toegang,&#10;    obj.kenmerk,&#10;    obj.koppeling,&#10;    obj.aanrijdbeveiliging,&#10;    obj.opvoerpomp,&#10;    obj.elektra,&#10;    obj.slot,&#10;    obj.inspecteur,&#10;    obj.inspectie_datum,&#10;    obj.inspectie_opmerking,&#10;    obj.inspectie_conditie_id,&#10;    obj.inspectie_opstelplaats,&#10;    obj.inspectie_certificaat,&#10;    obj.inspectie_locatie,&#10;    obj.inspectie_markering,&#10;    obj.inspectie_beplanting,&#10;    obj.inspectie_obstakels,&#10;    obj.inspectie_bereikbaarheid,&#10;    obj.inspectie_elektra,&#10;    obj.inspectie_aanrijdbeveiliging,&#10;    obj.inspectie_slot,&#10;    obj.inspectie_deksel,&#10;    obj.inspectie_rubber,&#10;    obj.inspectie_koppeling&#10;   FROM ((((roi_bluswater.brandput obj&#10;     LEFT JOIN roi_bluswater.conditie c ON ((obj.inspectie_conditie_id &#61; c.id)))&#10;     LEFT JOIN roi.fase f ON ((obj.fase_id &#61; f.id)))&#10;     LEFT JOIN roi_bluswater.gebied g ON ((obj.gebied_id &#61; g.id)))&#10;     LEFT JOIN roi.symbool s ON ((obj.symbool_id &#61; s.id)))&#10;  WHERE (obj.fase_id &lt; 5);</textarea>
                             <div style="padding-top: 5px;"><hr></div>
                             <div class="box box-solid">
                                 <div class="box-header with-border">
@@ -893,7 +923,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

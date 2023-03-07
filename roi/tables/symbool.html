@@ -87,7 +87,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -130,6 +136,10 @@
                                             <tr>
                                                 <td title="openwater.symbool_id references symbool.id via openwater_symbool_id_fkey"><a href='../../roi_bluswater/tables/openwater.html'>openwater</a><span class='relatedKey'>.symbool_id</span></td>
                                                 <td class="constraint detail">openwater_symbool_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="voorziening.symbool_id references symbool.id via voorziening_symbool_id_fkey"><a href='../../roi_bluswater/tables/voorziening.html'>voorziening</a><span class='relatedKey'>.symbool_id</span></td>
+                                                <td class="constraint detail">voorziening_symbool_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
                                                 <td title="voorziening.symbool_id references symbool.id via voorziening_symbool_id_fkey"><a href='../../roi_evenement/tables/voorziening.html'>voorziening</a><span class='relatedKey'>.symbool_id</span></td>
@@ -203,7 +213,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead>
                                 <tr>
                                     <th>Constraint Name</th>
@@ -241,34 +257,11 @@
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../../roi_bluswater/tables/bluswaterriool.html" target="_top" title="roi_bluswater.bluswaterriool" alt="" coords="364,5,688,152">
-<area shape="rect" id="node2" href="../../tables/symbool.html" target="_top" title="symbool" alt="" coords="5,688,304,845">
-<area shape="rect" id="node3" href="../../../roi_bluswater/tables/brandkraan.html" target="_top" title="roi_bluswater.brandkraan" alt="" coords="377,169,675,316">
-<area shape="rect" id="node4" href="../../../roi_bluswater/tables/brandkraan_prive.html" target="_top" title="roi_bluswater.brandkraan_prive" alt="" coords="352,333,700,480">
-<area shape="rect" id="node5" href="../../../roi_bluswater/tables/brandput.html" target="_top" title="roi_bluswater.brandput" alt="" coords="387,497,665,644">
-<area shape="rect" id="node6" href="../../../roi_bluswater/tables/openwater.html" target="_top" title="roi_bluswater.openwater" alt="" coords="348,661,704,808">
-<area shape="rect" id="node7" href="../../../roi_evenement/tables/voorziening.html" target="_top" title="roi_evenement.voorziening" alt="" coords="369,825,683,943">
-<area shape="rect" id="node8" href="../../../roi_gebouw/tables/voorziening.html" target="_top" title="roi_gebouw.voorziening" alt="" coords="384,960,668,1077">
-<area shape="rect" id="node9" href="../../../roi_natuurbrand/tables/voorziening.html" target="_top" title="roi_natuurbrand.voorziening" alt="" coords="365,1095,687,1212">
-<area shape="rect" id="node10" href="../../../roi_waterongeval/tables/voorziening.html" target="_top" title="roi_waterongeval.voorziening" alt="" coords="359,1229,693,1347">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/symbool.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../../roi_bluswater/tables/bluswaterriool.html" target="_top" title="roi_bluswater.bluswaterriool" alt="" coords="364,497,688,644">
-<area shape="rect" id="node2" href="../../tables/fase.html" target="_top" title="fase" alt="" coords="92,336,217,424">
-<area shape="rect" id="node3" href="../../tables/symbool.html" target="_top" title="symbool" alt="" coords="5,688,304,845">
-<area shape="rect" id="node4" href="../../../roi_bluswater/tables/brandkraan.html" target="_top" title="roi_bluswater.brandkraan" alt="" coords="377,661,675,808">
-<area shape="rect" id="node5" href="../../../roi_bluswater/tables/brandkraan_prive.html" target="_top" title="roi_bluswater.brandkraan_prive" alt="" coords="352,5,700,152">
-<area shape="rect" id="node6" href="../../../roi_bluswater/tables/brandput.html" target="_top" title="roi_bluswater.brandput" alt="" coords="387,169,665,316">
-<area shape="rect" id="node7" href="../../../roi_bluswater/tables/openwater.html" target="_top" title="roi_bluswater.openwater" alt="" coords="348,333,704,480">
-<area shape="rect" id="node8" href="../../../roi_evenement/tables/voorziening.html" target="_top" title="roi_evenement.voorziening" alt="" coords="369,1229,683,1347">
-<area shape="rect" id="node9" href="../../../roi_gebouw/tables/voorziening.html" target="_top" title="roi_gebouw.voorziening" alt="" coords="384,825,668,943">
-<area shape="rect" id="node10" href="../../../roi_natuurbrand/tables/voorziening.html" target="_top" title="roi_natuurbrand.voorziening" alt="" coords="365,960,687,1077">
-<area shape="rect" id="node11" href="../../../roi_waterongeval/tables/voorziening.html" target="_top" title="roi_waterongeval.voorziening" alt="" coords="359,1095,693,1212">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/symbool.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
@@ -289,7 +282,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

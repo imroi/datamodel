@@ -100,7 +100,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -141,8 +147,8 @@
                                                 <td class="constraint detail">opstelplaats_object_uuid_fkey<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
-                                                <td title="pand.object_uuid references object.uuid via gebouw_object_uuid_fkey"><a href='pand.html'>pand</a><span class='relatedKey'>.object_uuid</span></td>
-                                                <td class="constraint detail">gebouw_object_uuid_fkey<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
+                                                <td title="pand.object_uuid references object.uuid via pand_object_uuid_fkey"><a href='pand.html'>pand</a><span class='relatedKey'>.object_uuid</span></td>
+                                                <td class="constraint detail">pand_object_uuid_fkey<span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span></td>
                                             </tr>
                                             <tr>
                                                 <td title="risico.object_uuid references object.uuid via risico_object_uuid_fkey"><a href='risico.html'>risico</a><span class='relatedKey'>.object_uuid</span></td>
@@ -331,7 +337,7 @@
                                     <td>5</td>
                                     <td title=''></td>
                                     <td title=''></td>
-                                    <td>null</td>
+                                    <td>0</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
@@ -465,6 +471,57 @@
                                     </td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td><span id="aanwezig">aanwezig</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Aanwezige personen</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="brzo">brzo</span></td>
+                                    <td>bool</td>
+                                    <td>1</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>false</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Risicovollle bedrijven</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="controle">controle</span></td>
+                                    <td>date</td>
+                                    <td>13</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -479,7 +536,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead>
                                 <tr>
                                     <th>Constraint Name</th>
@@ -535,44 +598,11 @@
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bereikbaarheid.html" target="_top" title="bereikbaarheid" alt="" coords="631,5,846,211">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="203,1108,583,1705">
-<area shape="rect" id="node5" href="../../../roi/tables/fase.html" target="_top" title="roi.fase" alt="" coords="5,1409,159,1497">
-<area shape="rect" id="node3" href="../../tables/gevaarlijkestof.html" target="_top" title="gevaarlijkestof" alt="" coords="627,228,851,433">
-<area shape="rect" id="node4" href="../../tables/label.html" target="_top" title="label" alt="" coords="652,451,825,685">
-<area shape="rect" id="node6" href="../../tables/opstelplaats.html" target="_top" title="opstelplaats" alt="" coords="643,703,835,908">
-<area shape="rect" id="node7" href="../../tables/pand.html" target="_top" title="pand" alt="" coords="652,925,825,1160">
-<area shape="rect" id="node8" href="../../tables/risico.html" target="_top" title="risico" alt="" coords="652,1177,825,1383">
-<area shape="rect" id="node9" href="../../tables/scenario.html" target="_top" title="scenario" alt="" coords="649,1400,829,1576">
-<area shape="rect" id="node10" href="../../tables/scheiding.html" target="_top" title="scheiding" alt="" coords="644,1593,833,1828">
-<area shape="rect" id="node11" href="../../tables/sector.html" target="_top" title="sector" alt="" coords="652,1845,825,2080">
-<area shape="rect" id="node12" href="../../tables/voorziening.html" target="_top" title="voorziening" alt="" coords="645,2097,832,2332">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/object.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bereikbaarheid.html" target="_top" title="bereikbaarheid" alt="" coords="631,5,846,211">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="203,808,583,1405">
-<area shape="rect" id="node3" href="../../../roi/tables/verbinding.html" target="_top" title="roi.verbinding" alt="" coords="290,96,495,184">
-<area shape="rect" id="node7" href="../../../roi/tables/fase.html" target="_top" title="roi.fase" alt="" coords="5,1109,159,1197">
-<area shape="rect" id="node4" href="../../tables/gevaarlijkestof.html" target="_top" title="gevaarlijkestof" alt="" coords="627,480,851,685">
-<area shape="rect" id="node5" href="../../tables/label.html" target="_top" title="label" alt="" coords="652,228,825,463">
-<area shape="rect" id="node6" href="../../../roi/tables/annotatie.html" target="_top" title="roi.annotatie" alt="" coords="294,319,491,407">
-<area shape="rect" id="node8" href="../../tables/opstelplaats.html" target="_top" title="opstelplaats" alt="" coords="643,1177,835,1383">
-<area shape="rect" id="node9" href="../../../roi/tables/voertuig.html" target="_top" title="roi.voertuig" alt="" coords="299,1423,486,1511">
-<area shape="rect" id="node10" href="../../tables/pand.html" target="_top" title="pand" alt="" coords="652,703,825,937">
-<area shape="rect" id="node11" href="../../tables/risico.html" target="_top" title="risico" alt="" coords="652,955,825,1160">
-<area shape="rect" id="node12" href="../../tables/scenario.html" target="_top" title="scenario" alt="" coords="649,1400,829,1576">
-<area shape="rect" id="node13" href="../../tables/scenario_type.html" target="_top" title="scenario_type" alt="" coords="291,1528,495,1616">
-<area shape="rect" id="node14" href="../../tables/scheiding.html" target="_top" title="scheiding" alt="" coords="644,1593,833,1828">
-<area shape="rect" id="node15" href="../../tables/scheiding_type.html" target="_top" title="scheiding_type" alt="" coords="287,1684,499,1772">
-<area shape="rect" id="node16" href="../../tables/sector.html" target="_top" title="sector" alt="" coords="652,1845,825,2080">
-<area shape="rect" id="node17" href="../../../roi/tables/zone.html" target="_top" title="roi.zone" alt="" coords="314,1936,471,2024">
-<area shape="rect" id="node18" href="../../tables/voorziening.html" target="_top" title="voorziening" alt="" coords="645,2097,832,2332">
-<area shape="rect" id="node19" href="../../../roi/tables/symbool.html" target="_top" title="roi.symbool" alt="" coords="299,2188,486,2276">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/object.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
@@ -593,7 +623,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

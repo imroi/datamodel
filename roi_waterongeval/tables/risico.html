@@ -100,7 +100,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -272,6 +278,27 @@
                                     </td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="dreiging_id">dreiging_id</span></td>
+                                    <td>int2</td>
+                                    <td>5</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="risico.dreiging_id references roi.dreiging.id via risico_dreiging_id_fkey"><a href='../../roi/tables/dreiging.html'>dreiging</a><span class='relatedKey'>.id</span></td>
+                                                <td class="constraint detail">risico_dreiging_id_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -286,7 +313,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead>
                                 <tr>
                                     <th>Constraint Name</th>
@@ -301,6 +334,12 @@
                                     <td>Primary key</td>
                                     <td><span title='Ascending'>Asc</span></td>
                                     <td>uuid</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>risico_dreiging_id_idx</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>dreiging_id</td>
                                 </tr>
                                 <tr>
                                     <td title='Indexed'>risico_geom_idx</td>
@@ -336,22 +375,11 @@
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/risico.html" target="_top" title="risico" alt="" coords="243,5,603,339">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="5,243,199,477">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/risico.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bereikbaarheid.html" target="_top" title="bereikbaarheid" alt="" coords="545,5,759,93">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="235,281,428,516">
-<area shape="rect" id="node3" href="../../../roi/tables/fase.html" target="_top" title="roi.fase" alt="" coords="21,333,175,421">
-<area shape="rect" id="node4" href="../../tables/object_type.html" target="_top" title="object_type" alt="" coords="5,439,191,527">
-<area shape="rect" id="node5" href="../../tables/opstelplaats.html" target="_top" title="opstelplaats" alt="" coords="556,111,748,199">
-<area shape="rect" id="node6" href="../../tables/risico.html" target="_top" title="risico" alt="" coords="472,216,832,549">
-<area shape="rect" id="node7" href="../../tables/voorziening.html" target="_top" title="voorziening" alt="" coords="559,567,745,655">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/risico.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
@@ -372,7 +400,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

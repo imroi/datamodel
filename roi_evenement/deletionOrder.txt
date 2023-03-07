@@ -1,8 +1,8 @@
 voorziening
 sector
+risico
 opstelplaats
 label
 bereikbaarheid
-risico
 object
 object_type

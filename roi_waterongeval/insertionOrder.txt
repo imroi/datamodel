@@ -1,6 +1,8 @@
 object_type
 object
-risico
 bereikbaarheid
+label
 opstelplaats
+risico
+sector
 voorziening

@@ -87,7 +87,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -187,7 +193,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead>
                                 <tr>
                                     <th>Constraint Name</th>
@@ -225,28 +237,11 @@
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bluswaterriool.html" target="_top" title="bluswaterriool" alt="" coords="401,5,651,269">
-<area shape="rect" id="node2" href="../../tables/conditie.html" target="_top" title="conditie" alt="" coords="5,741,304,899">
-<area shape="rect" id="node3" href="../../tables/brandkraan.html" target="_top" title="brandkraan" alt="" coords="379,287,673,580">
-<area shape="rect" id="node4" href="../../tables/brandkraan_prive.html" target="_top" title="brandkraan_prive" alt="" coords="379,597,673,861">
-<area shape="rect" id="node5" href="../../tables/brandput.html" target="_top" title="brandput" alt="" coords="389,879,663,1143">
-<area shape="rect" id="node6" href="../../tables/openwater.html" target="_top" title="openwater" alt="" coords="348,1160,704,1424">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/conditie.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bluswaterriool.html" target="_top" title="bluswaterriool" alt="" coords="401,287,651,551">
-<area shape="rect" id="node2" href="../../../roi/tables/fase.html" target="_top" title="roi.fase" alt="" coords="78,545,231,633">
-<area shape="rect" id="node3" href="../../tables/gebied.html" target="_top" title="gebied" alt="" coords="82,756,227,844">
-<area shape="rect" id="node4" href="../../tables/conditie.html" target="_top" title="conditie" alt="" coords="5,861,304,1019">
-<area shape="rect" id="node5" href="../../../roi/tables/symbool.html" target="_top" title="roi.symbool" alt="" coords="61,651,248,739">
-<area shape="rect" id="node6" href="../../tables/brandkraan.html" target="_top" title="brandkraan" alt="" coords="379,568,673,861">
-<area shape="rect" id="node7" href="../../tables/brandkraan_prive.html" target="_top" title="brandkraan_prive" alt="" coords="379,879,673,1143">
-<area shape="rect" id="node8" href="../../tables/brandput.html" target="_top" title="brandput" alt="" coords="389,1160,663,1424">
-<area shape="rect" id="node9" href="../../tables/openwater.html" target="_top" title="openwater" alt="" coords="348,5,704,269">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/conditie.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
@@ -267,7 +262,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>

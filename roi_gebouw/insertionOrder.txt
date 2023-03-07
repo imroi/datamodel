@@ -3,10 +3,10 @@ scheiding_type
 object
 gevaarlijkestof
 pand
-risico
 bereikbaarheid
 label
 opstelplaats
+risico
 scenario
 scheiding
 sector

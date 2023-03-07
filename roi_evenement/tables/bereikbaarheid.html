@@ -100,7 +100,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead align='left'>
                                 <tr>
                                     <th>Column</th>
@@ -341,7 +347,13 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
                                 <thead>
                                 <tr>
                                     <th>Constraint Name</th>
@@ -391,26 +403,11 @@
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bereikbaarheid.html" target="_top" title="bereikbaarheid" alt="" coords="255,5,615,427">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="10,119,206,383">
-<area shape="rect" id="node3" href="../../../roi/tables/verbinding.html" target="_top" title="roi.verbinding" alt="" coords="5,400,211,488">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/bereikbaarheid.1degree.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="../../tables/bereikbaarheid.html" target="_top" title="bereikbaarheid" alt="" coords="484,5,844,427">
-<area shape="rect" id="node2" href="../../tables/object.html" target="_top" title="object" alt="" coords="239,599,435,863">
-<area shape="rect" id="node3" href="../../../roi/tables/verbinding.html" target="_top" title="roi.verbinding" alt="" coords="235,277,440,365">
-<area shape="rect" id="node5" href="../../../roi/tables/fase.html" target="_top" title="roi.fase" alt="" coords="21,651,175,739">
-<area shape="rect" id="node6" href="../../tables/object_type.html" target="_top" title="object_type" alt="" coords="5,756,191,844">
-<area shape="rect" id="node4" href="../../tables/label.html" target="_top" title="label" alt="" coords="599,760,729,848">
-<area shape="rect" id="node7" href="../../tables/opstelplaats.html" target="_top" title="opstelplaats" alt="" coords="568,865,760,953">
-<area shape="rect" id="node8" href="../../tables/risico.html" target="_top" title="risico" alt="" coords="597,444,731,532">
-<area shape="rect" id="node9" href="../../tables/sector.html" target="_top" title="sector" alt="" coords="593,549,735,637">
-<area shape="rect" id="node10" href="../../tables/voorziening.html" target="_top" title="voorziening" alt="" coords="571,655,757,743">
-</map>
+                                        
                                         <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/bereikbaarheid.2degrees.svg" class="diagram" border="0" align="left"></object></a>
                                     </div>
                                 </div>
@@ -431,7 +428,7 @@
                         <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
                         <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
                     </div>
-                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.1-SNAPSHOT</a></strong>
                 </div>
                 <!-- /.container -->
             </footer>
